@@ -70,7 +70,10 @@ angular.module('signature').directive('signaturePad', ['$window',
 
          scope.onResize();
 
-        angular.element($window).bind('resize', function() {
+       angular.element($window).bind('resize', function() {
+            scope.height = element[0].offsetHeight;
+            scope.width = element[0].offsetWidth;
+            scope.$digest();
             scope.clear();
         });
       }
