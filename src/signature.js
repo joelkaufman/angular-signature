@@ -52,8 +52,9 @@ angular.module('signature').directive('signaturePad', ['$window',
         canvas = element.find('canvas')[0];
         scope.signaturePad = new SignaturePad(canvas);
 
-        if (!scope.height) scope.height = element[0].offsetHeight ;
-        if (!scope.width) scope.width = element[0].offsetWidth ;
+        if (!scope.height) scope.height = element[0].offsetHeight;
+        if (!scope.width) scope.width = element[0].offsetWidth;
+
 
         if (scope.signature && !scope.signature.$isEmpty && scope.signature.dataUrl) {
           scope.signaturePad.fromDataURL(scope.signature.dataUrl);
@@ -70,7 +71,7 @@ angular.module('signature').directive('signaturePad', ['$window',
          scope.onResize();
 
         angular.element($window).bind('resize', function() {
-            scope.onResize();
+            scope.clear();
         });
       }
     };
